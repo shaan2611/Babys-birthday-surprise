@@ -83,7 +83,7 @@ section{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
   max-width:900px;
-  margin:auto;
+  margin: 18px auto 0;
 }
 
 .grid img{
@@ -117,6 +117,11 @@ section{
   line-height:1.9;
   font-size:14px;
 }
+.small{
+  font-size:12px;
+  opacity:.7;
+  margin-top:10px;
+}
 </style>
 </head>
 
@@ -124,23 +129,27 @@ section{
 
 <div class="confetti" id="confetti"></div>
 
-<audio id="song" loop>
-  <source src="assets/song.mp3" type="audio/mpeg">
+<!-- ONE AUDIO ONLY (use the real filename you uploaded) -->
+<audio id="song" loop preload="auto">
+  <source src="assets/song.mpeg" type="audio/mpeg">
 </audio>
 
 <section class="hero">
   <div>
     <h1>Happy Birthday, Boaboa 🩵</h1>
     <p>My sweetest baby in the whole world 🥳👀🎂</p>
-    <button class="btn" onclick="start()">Start the Celebration</button>
+    <button class="btn" onclick="startCelebration()">Start the Celebration 🎉</button>
+    <div class="small">Click the button to start the song 🎵</div>
   </div>
 </section>
 
-<section class="memories">
-  <h2>Our Beautiful Moments 📸</h2>
-  <div class="grid">
-    <img src="assets/photo1.jpg">
-    <img src="assets/photo2.jpg">
+<section class="memories" id="memories">
+  <div>
+    <h2>Our Beautiful Moments 📸</h2>
+    <div class="grid">
+      <img src="assets/photo1.jpg" alt="Memory 1">
+      <img src="assets/photo2.jpg" alt="Memory 2">
+    </div>
   </div>
 </section>
 
@@ -148,29 +157,36 @@ section{
   <div class="card">
     <h2>For You My Love 💌</h2>
     <p>
-My sweetest boaboa's birthday todayyyyy! 🥳👀🎂<br><br>
+      My sweetest boaboa's birthday todayyyyy! 🥳👀🎂<br><br>
 
-Happy happy birthday to my beautiful, adorable, and absolutely perfect baby 🩵 
-Nee en vazhkai la vandha naal la irundhu, en life ah romba beautiful aakita...
-<br><br>
+      Happy happy birthday to my beautiful, adorable, and absolutely perfect baby 🩵
+      Nee en vazhkai la vandha naal la irundhu, en life ah romba beautiful aakita...
+      <br><br>
 
-Unga smile, unga laughter, unga love — ivellam enaku romba precious.
-You're my safe place, my happy place, my everything.
-<br><br>
+      Unga smile, unga laughter, unga love — ivellam enaku romba precious.
+      You're my safe place, my happy place, my everything.
+      <br><br>
 
-Eppothum un kude irupe sariya 🩵🐨  
-I love you so so so much my boaboa 😘
+      Eppothum un kude irupe sariya 🩵🐨<br>
+      I love you so so so much my boaboa 😘
     </p>
   </div>
 </section>
 
 <script>
-function start(){
-  document.getElementById("song").play();
-  document.querySelector(".memories").scrollIntoView({behavior:"smooth"});
+function startCelebration(){
+  const music = document.getElementById("song");
+
+  // Start music after click (browser allows)
+  music.play().catch(() => {
+    alert("Music not playing. Check file name: assets/song.mpeg");
+  });
+
+  // Scroll to memories
+  document.getElementById("memories").scrollIntoView({behavior:"smooth"});
 }
 
-/* CONFETTI */
+// CONFETTI
 const container = document.getElementById("confetti");
 const hearts=["💗","💖","💕","💞","❤️","✨"];
 for(let i=0;i<40;i++){
@@ -185,22 +201,3 @@ for(let i=0;i<40;i++){
 
 </body>
 </html>
-
-<audio id="song" loop>
-  <source src="assets/song.mpeg" type="audio/mpeg">
-</audio>
-
-<button class="btn" onclick="startCelebration()">Start the Celebration 🎉</button>
-
-<script>
-function startCelebration() {
-  const music = document.getElementById("song");
-  music.play();
-  document.getElementById("memories").scrollIntoView({ behavior: "smooth" });
-}
-</script>
-
-<section class="memories" id="memories">
-  <img src="assets/photo1.jpg">
-  <img src="assets/photo2.jpg">
-</section>
