@@ -1,48 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Happy Birthday My Babygirl ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Boaboa ❤️</title>
 
-    <style>
-        body {
-            background: linear-gradient(to right, pink, lightyellow);
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .card {
-            background: light pink;
-            width: 70%;
-            margin: 80px auto;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 15px gray;
-        }
+<style>
+body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+  overflow-x:hidden;
+  background:#000;
+}
 
-        h1 {
-            color: red;
-        }
-    </style>
+/* CONFETTI HEARTS */
+.confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+.confetti span{
+  position:absolute;
+  top:-20px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{ transform:translateY(110vh) rotate(360deg); }
+}
+
+/* SECTION */
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+  position:relative;
+  z-index:2;
+}
+
+/* HERO */
+.hero{
+  background:#f6f1db;
+  text-align:center;
+}
+
+.hero h1{
+  font-family:'Great Vibes', cursive;
+  font-size:80px;
+  margin:0;
+  color:#5b3a3a;
+}
+
+.hero p{
+  max-width:700px;
+  margin:10px auto;
+  opacity:.7;
+}
+
+.btn{
+  margin-top:20px;
+  background:#ff4f86;
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* PHOTOS */
+.memories{
+  background:#f6f1db;
+  text-align:center;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  max-width:900px;
+  margin:auto;
+}
+
+.grid img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+/* MESSAGE */
+.message{
+  background:linear-gradient(135deg,#6f43ff,#7b2cff);
+  color:#fff;
+  text-align:center;
+}
+
+.card{
+  max-width:750px;
+  background:rgba(255,255,255,.15);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+}
+
+.card h2{
+  font-family:'Great Vibes', cursive;
+  font-size:60px;
+  margin-top:0;
+}
+
+.card p{
+  line-height:1.9;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="confetti" id="confetti"></div>
 
-    <h1>🎂 Happy Birthday My Baby Girl ❤️ 🎂</h1>
+<audio id="song" loop>
+  <source src="assets/song.mp3" type="audio/mpeg">
+</audio>
 
-    <p>To the most beautiful girl in my life 💖</p>
+<section class="hero">
+  <div>
+    <h1>Happy Birthday, Boaboa 🩵</h1>
+    <p>My sweetest baby in the whole world 🥳👀🎂</p>
+    <button class="btn" onclick="start()">Start the Celebration</button>
+  </div>
+</section>
 
-    <p>Thank you for loving me, supporting me, and making my life better.</p>
+<section class="memories">
+  <h2>Our Beautiful Moments 📸</h2>
+  <div class="grid">
+    <img src="assets/photo1.jpg">
+    <img src="assets/photo2.jpg">
+  </div>
+</section>
 
-    <p>I’m so lucky to have you 😘</p>
+<section class="message">
+  <div class="card">
+    <h2>For You My Love 💌</h2>
+    <p>
+My sweetest boaboa's birthday todayyyyy! 🥳👀🎂<br><br>
 
-    <p>Forever yours ❤️</p>
+Happy happy birthday to my beautiful, adorable, and absolutely perfect baby 🩵 
+Nee en vazhkai la vandha naal la irundhu, en life ah romba beautiful aakita...
+<br><br>
 
-    <p>– From your only Keychain 😍</p>
+Unga smile, unga laughter, unga love — ivellam enaku romba precious.
+You're my safe place, my happy place, my everything.
+<br><br>
 
-</div>
+Eppothum un kude irupe sariya 🩵🐨  
+I love you so so so much my boaboa 😘
+    </p>
+  </div>
+</section>
+
+<script>
+function start(){
+  document.getElementById("song").play();
+  document.querySelector(".memories").scrollIntoView({behavior:"smooth"});
+}
+
+/* CONFETTI */
+const container = document.getElementById("confetti");
+const hearts=["💗","💖","💕","💞","❤️","✨"];
+for(let i=0;i<40;i++){
+  let s=document.createElement("span");
+  s.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(8+Math.random()*8)+"s";
+  s.style.fontSize=(10+Math.random()*15)+"px";
+  container.appendChild(s);
+}
+</script>
 
 </body>
 </html>
 
+<audio id="song" loop>
+  <source src="assets/song.mpeg" type="audio/mpeg">
+</audio>
+
+<button class="btn" onclick="startCelebration()">Start the Celebration 🎉</button>
+
+<script>
+function startCelebration() {
+  const music = document.getElementById("song");
+  music.play();
+  document.getElementById("memories").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+<section class="memories" id="memories">
+  <img src="assets/photo1.jpg">
+  <img src="assets/photo2.jpg">
+</section>
